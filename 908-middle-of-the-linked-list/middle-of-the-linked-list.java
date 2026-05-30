@@ -10,11 +10,20 @@
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
-    ListNode hare=head,turtle=head;
-    while(hare!=null&&hare.next!=null){
-        hare=hare.next.next;
-        turtle=turtle.next;
-    }
-    return turtle;
+     ListNode temp=head;
+     int size =0;
+     if(head==null||head.next==null){
+        return head;
+     }
+     while(temp!=null){
+        size++;
+        temp=temp.next;
+     }   
+        temp=head;
+        int mid=(int)Math.ceil(size/2);
+        for(int i=1;i<=mid;i++){
+            temp=temp.next;
+        }
+        return temp;
     }
 }
